@@ -1,10 +1,14 @@
 package com.example.bajp_submission2.ui.tvshow
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bajp_submission2.data.ContentEntity
+import com.bumptech.glide.Glide
+import com.example.bajp_submission2.data.source.local.ContentEntity
 import com.example.bajp_submission2.databinding.ItemContentBinding
+import com.example.bajp_submission2.ui.detail.DetailMovieActivity
+import com.example.bajp_submission2.ui.detail.DetailMovieViewModel.Companion.TV_SHOW
 
 
 class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
@@ -34,9 +38,9 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
         fun bind(tvShow: ContentEntity) {
             with(binding) {
                 tvItemTitle.text = tvShow.title
-                tvItemGenre.text = tvShow.genre
-                tvItemScore.text = tvShow.score
+                tvItemScore.text = tvShow.score.toString()
                 tvItemDate.text = tvShow.date
+                tvItemDesc.text = tvShow.description
 
                 Glide.with(itemView.context)
                     .load(tvShow.imagePath)

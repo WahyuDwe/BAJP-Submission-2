@@ -1,10 +1,14 @@
 package com.example.bajp_submission2.ui.movie
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bajp_submission2.data.ContentEntity
+import com.bumptech.glide.Glide
+import com.example.bajp_submission2.data.source.local.ContentEntity
 import com.example.bajp_submission2.databinding.ItemContentBinding
+import com.example.bajp_submission2.ui.detail.DetailMovieActivity
+import com.example.bajp_submission2.ui.detail.DetailMovieViewModel.Companion.MOVIE
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     private var listMovie = ArrayList<ContentEntity>()
@@ -33,9 +37,9 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         fun bind(movie: ContentEntity) {
             with(binding) {
                 tvItemTitle.text = movie.title
-                tvItemGenre.text = movie.genre
-                tvItemScore.text = movie.score
+                tvItemScore.text = movie.score.toString()
                 tvItemDate.text = movie.date
+                tvItemDesc.text = movie.description
 
                 Glide.with(itemView.context)
                     .load(movie.imagePath)

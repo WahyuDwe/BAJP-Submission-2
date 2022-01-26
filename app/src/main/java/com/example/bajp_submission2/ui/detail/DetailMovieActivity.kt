@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.example.bajp_submission2.data.ContentEntity
+import com.example.bajp_submission2.data.source.local.ContentEntity
 import com.example.bajp_submission2.databinding.ActivityDetailMovieBinding
 import com.google.android.material.appbar.AppBarLayout
 
@@ -48,10 +48,10 @@ class DetailMovieActivity : AppCompatActivity() {
 
     private fun populateContentDetail(content: ContentEntity) {
         activityDetailMovieBinding.detailTitle.text = content.title
-        activityDetailMovieBinding.detailGenre.text = content.genre
+        activityDetailMovieBinding.detailGenre.text = content.genre.toString()
         activityDetailMovieBinding.detailsReleaseDate.text = content.date
         activityDetailMovieBinding.detailDescription.text = content.description
-        activityDetailMovieBinding.detailScore.text = content.score
+        activityDetailMovieBinding.detailScore.text = content.score.toString()
 
         Glide.with(this)
             .load(content.imagePath)

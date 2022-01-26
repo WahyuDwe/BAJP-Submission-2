@@ -29,6 +29,9 @@ ext {
     recyclerViewVersion = '1.2.1'
     glideVersion = '4.12.0'
 
+    retrofitVersion = '2.9.0'
+    okhttp3Version = '4.9.0'
+
 }
 
 task clean(type: Delete) {

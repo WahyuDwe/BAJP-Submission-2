@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background=""
     tools:context=".ui.detail.DetailMovieActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -117,7 +116,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center_vertical"
                     android:textColor="?colorPrimary"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:drawableLeftCompat="@drawable/ic_star"
                     tools:text="5.9" />
             </LinearLayout>
