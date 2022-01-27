@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.bajp_submission2.data.source.MovieDataRepository
 import com.example.bajp_submission2.data.source.local.DetailEntity
 
+
 class DetailMovieViewModel(private val movieDataRepository: MovieDataRepository) : ViewModel() {
     companion object {
         const val MOVIE = "movie"

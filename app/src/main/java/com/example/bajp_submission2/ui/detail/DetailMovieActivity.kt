@@ -2,11 +2,14 @@ package com.example.bajp_submission2.ui.detail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.bajp_submission2.BuildConfig
 import com.example.bajp_submission2.data.source.local.DetailEntity
 import com.example.bajp_submission2.databinding.ActivityDetailMovieBinding
+import com.example.bajp_submission2.ui.detail.DetailMovieViewModel.Companion.MOVIE
 import com.example.bajp_submission2.viewmodel.ViewModelFactory
 import com.google.android.material.appbar.AppBarLayout
 
@@ -32,6 +35,7 @@ class DetailMovieActivity : AppCompatActivity() {
 
         val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(this, factory)[DetailMovieViewModel::class.java]
+        showProgressBar(true)
 
         val extras = intent.extras
         if (extras != null) {
@@ -41,11 +45,24 @@ class DetailMovieActivity : AppCompatActivity() {
             if (contentId != null && contentCategory != null) {
                 viewModel.setContent(contentId, contentCategory)
                 viewModel.getContentDetail().observe(this) { content ->
+                    showProgressBar(false)
                     populateContentDetail(content)
                 }
             }
+
+            if (extras.getString(EXTRA_CATEGORY) == MOVIE) {
+                showTitleCollapse("Detail Movie")
+            } else {
+                showTitleCollapse("Detail Tv Show")
+            }
         }
-        showTitleCollapse()
+
+    }
+
+    private fun showProgressBar(state: Boolean) {
+        activityDetailMovieBinding.progressBar.isVisible = state
+        activityDetailMovieBinding.appbar.isGone = state
+        activityDetailMovieBinding.nestedScrollView.isGone = state
     }
 
     private fun populateContentDetail(content: DetailEntity) {
@@ -67,13 +84,13 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
 
-    private fun showTitleCollapse() {
+    fun showTitleCollapse(statusBar: String) {
         activityDetailMovieBinding.appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { barLayout, verticalOffset ->
             if (scrollRange == -1) {
                 scrollRange = barLayout?.totalScrollRange!!
             }
             if (scrollRange + verticalOffset == 0) {
-                activityDetailMovieBinding.collapsingToolbar.title = "Detail Movie"
+                activityDetailMovieBinding.collapsingToolbar.title = statusBar
                 isShow = true
             } else if (isShow) {
                 activityDetailMovieBinding.collapsingToolbar.title = " "

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,11 +27,14 @@ class TvShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
+            showProgressBar(true)
+
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
             val tvShowAdapter = TvShowAdapter()
 
             viewModel.getTvShow().observe(viewLifecycleOwner) { tvShow ->
+                showProgressBar(false)
                 tvShowAdapter.setTvShow(tvShow)
                 tvShowAdapter.notifyDataSetChanged()
             }
@@ -40,6 +45,11 @@ class TvShowFragment : Fragment() {
                 this.adapter = tvShowAdapter
             }
         }
+    }
+
+    private fun showProgressBar(state: Boolean) {
+        binding.progressBar.isVisible = state
+        binding.rvTvshow.isGone = state
     }
 
     override fun onDestroyView() {
