@@ -4,16 +4,14 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
+
 @Parcelize
-data class DetailEntity(
+data class MovieEntity(
     @SerializedName("id")
     var id: Int,
 
     @SerializedName("original_title")
     var title: String,
-
-    @SerializedName("genres")
-    var genre: List<String>,
 
     @SerializedName("overview")
     var description: String,
@@ -26,7 +24,4 @@ data class DetailEntity(
 
     @SerializedName("poster_path")
     var imagePath: String
-) : Parcelable
-
-
-
+): Parcelable

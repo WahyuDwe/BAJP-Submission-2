@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BAJPSubmission1" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.BAJPSubmission2" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/pink_500</item>
         <item name="colorPrimaryVariant">@color/pink_700</item>
@@ -12,9 +12,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
     </style>
 
-    <style name="Theme.BAJPSubmission1.NoActionBar">
+    <style name="Theme.BAJPSubmission2.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -22,4 +23,5 @@
     <style name="Theme.BAJPSubmission1.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.BAJPSubmission1.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

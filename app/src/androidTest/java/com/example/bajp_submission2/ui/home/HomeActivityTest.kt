@@ -64,6 +64,6 @@ class HomeActivityTest {
         onView(withId(R.id.detail_genre)).check(matches(withText(dummyTvShow[0].genre)))
         onView(withId(R.id.detail_poster)).check(matches(isDisplayed()))
         onView(withId(R.id.detail_description)).check(matches(isDisplayed()))
-        onView(withId(R.id.detail_description)).check(matches(withText(dummyTvShow[0].description)))
+        onView(withId(R.id.detail_description)).check(matches(withText(dummyTvShow[0].overview)))
     }
 }

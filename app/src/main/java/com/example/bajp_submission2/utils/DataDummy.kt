@@ -1,16 +1,16 @@
 package com.example.bajp_submission2.utils
 
-import com.example.bajp_submission2.data.source.local.ContentEntity
+import com.example.bajp_submission2.data.source.local.MovieEntity
+import com.example.bajp_submission2.data.source.local.TvShowEntity
 
 object DataDummy {
-    fun dataDummyMovies(): ArrayList<ContentEntity> {
-        val movies = ArrayList<ContentEntity>()
+    fun dataDummyMovies(): ArrayList<MovieEntity> {
+        val movies = ArrayList<MovieEntity>()
 
         movies.add(
-            ContentEntity(
+            MovieEntity(
                 15,
                 "Spider-Man: No Way Home",
-                listOf("Action", "Adventure", "Science Fiction"),
                 "After Quentin Beck frames Peter Parker for murder and reveals his identity as Spider-Man,[N 1] Parker, his girlfriend MJ, best friend Ned Leeds, and aunt May are interrogated by the Department of Damage Control. Lawyer Matt Murdock gets Parker's charges dropped, but the group grapples with negative publicity. After Parker, MJ, and Ned's MIT applications are rejected, Parker goes to the New York Sanctum to ask Stephen Strange for help. Strange suggests a spell that would make everyone forget Parker is Spider-Man, but it is corrupted when Parker repeatedly requests alterations to let his loved ones retain their memories. Strange contains the spell to stop it and makes Parker leave.\n" +
                         "\n" +
                         "Parker tries to convince an MIT administrator to reconsider MJ and Ned's applications, but is attacked by Otto Octavius. Octavius rips Parker's nanotechnology from his Iron Spider suit which bonds with his mechanical tentacles and allows Parker to disable them. As Norman Osborn arrives and attacks, Strange teleports Parker back to the Sanctum and locks Octavius in a cell next to Curt Connors. Strange explains that before he was able to contain the corrupted spell it summoned some people from other universes who know Spider-Man's identity. He orders Parker, MJ, and Ned to find and capture them; they are able to locate and retrieve Max Dillon and Flint Marko.\n" +
@@ -23,10 +23,9 @@ object DataDummy {
         )
 
         movies.add(
-            ContentEntity(
+            MovieEntity(
                 69,
                 "Encanto",
-                listOf("Animation", "Comedy", "Family", "Fantasy"),
                 "TForced by an armed conflict to flee her home, a young Alma Madrigal loses her husband Pedro but saves her triplet infant children: Julieta, Pepa, and Bruno. By a \"miracle,\" her candle attains magical qualities, blasts away their pursuers, and creates a sentient house, the Casita, for them to live in, along with a magical hidden town bordered by tall surrounding mountains—an encanto. Fifty years later, the candle continues to burn and the town thrives under its protection. The candle's magic grants superhuman abilities to each Madrigal child, which they use to serve the villagers. However, Bruno, vilified for his gift of precognition, disappeared ten years earlier. Meanwhile, Mirabel, Julieta's youngest daughter, is treated differently for mysteriously not having received a gift.\n" +
                         "\n" +
                         "Pepa's youngest son, Antonio, is gifted with the ability to communicate with animals, and the family poses for a picture but neglects Mirabel. She suddenly sees the Casita cracking and the candle's flame flickering, but her warnings go unheeded when the Casita appears undamaged to the others. She resolves to save the miracle's magic. The next day, she talks to her super-strong older sister, Luisa, who suggests that Bruno's room, in a forbidden tower in the Casita, may hold clues to the phenomenon. There, Mirabel discovers a cave and recovers pieces of a slab of opaque emerald glass, which forms an image of herself being the cause of the failing magic. After Mirabel narrowly escapes the cave, Luisa discovers that her gift is weakening.\n" +
@@ -39,10 +38,9 @@ object DataDummy {
         )
 
         movies.add(
-            ContentEntity(
+            MovieEntity(
                 32,
                 "Venom: Let There Be Carnage",
-                listOf("Science",  "Fiction", "Action", "Adventure"),
                 "In 1996, a young Cletus Kasady watches helplessly as his love, Frances Barrison is taken away from St. Estes Home for Unwanted Children to the Ravencroft Institute. On the way, Barrison uses her sonic scream powers to attack young police officer Patrick Mulligan. Mulligan shoots Barrison in the eye and suffers an injury to his ear due to her scream. Unbeknownst to Mulligan, who believes he killed her, Barrison is still taken to Ravencroft where her abilities are restricted.\n" +
                         "\n" +
                         "In the present day, Mulligan is now a detective and asks journalist Eddie Brock to speak to serial killer Kasady in San Quentin State Prison, as Kasady refuses to talk to anyone other than Brock. After the visit, Brock's alien symbiote Venom deduces where Kasady has hidden the bodies of his victims which gives Brock a huge career boost. Brock is then contacted by his ex-fiancée Anne Weying, who tells him that she is now engaged to Dr. Dan Lewis, much to Venom's displeasure.\n" +
@@ -59,14 +57,13 @@ object DataDummy {
         return movies
     }
 
-    fun dataDummyTvShow(): ArrayList<ContentEntity> {
-        val tvShow = ArrayList<ContentEntity>()
+    fun dataDummyTvShow(): ArrayList<TvShowEntity> {
+        val tvShow = ArrayList<TvShowEntity>()
 
         tvShow.add(
-            ContentEntity(
+            TvShowEntity(
                 53,
                 "Squid Game",
-                listOf("Action & Adventure", "Mystery", "Drama"),
                 "Seong Gi-hun, a divorced father and indebted gambler who lives with his elderly mother, is invited to play a series of children's games for a chance at a large cash prize. Accepting the offer, he is taken to an unknown location where he finds himself among 456 players who are all deeply in debt. The players are made to wear green tracksuits and are kept under watch at all times by masked guards in pink jumpsuits, with the games overseen by the Front Man, who wears a black mask and black uniform. The players soon discover that losing a game results in their death, with each death adding ₩100 million to the potential ₩45.6 billion grand prize.[a][b] Gi-hun allies with other players, including his childhood friend Cho Sang-woo and pickpocket Kang Sae-byeok, to try to survive the physical and psychological twists of the games.",
                 "Sep 17, 2021",
                 8.9,
@@ -75,10 +72,9 @@ object DataDummy {
         )
 
         tvShow.add(
-            ContentEntity(
+            TvShowEntity(
                 32,
                 "The Walking Dead",
-                listOf("Action & Adventure", "Drama", "Sci-Fi & Fantasy"),
                 "The Walking Dead takes place after the onset of a worldwide zombie apocalypse. The zombies, referred to as \"walkers\", shamble towards living humans and other creatures to eat them; they are attracted to noise, such as gunshots, and to different scents, e.g. humans. Although it initially seems that only humans that are bitten or scratched by walkers can turn into other walkers, it is revealed early in the series that all living humans carry the pathogen responsible for the mutation. The mutation is activated after the death of the pathogen's host, and the only way to permanently kill a walker is to damage its brain or destroy the body entirely, such as by cremating it.\n" +
                         "\n" +
                         "The series centers on sheriff's deputy Rick Grimes, who wakes up from a coma. While in a coma, the world has been taken over by walkers. He becomes the leader of a group of survivors from the Atlanta, Georgia, region as they attempt to sustain and protect themselves not only against attacks by walkers but by other groups of survivors willing to use any means necessary to stay alive.",
@@ -89,10 +85,9 @@ object DataDummy {
         )
 
         tvShow.add(
-            ContentEntity(
+            TvShowEntity(
                 189,
                 "Money Heist",
-                listOf("Crime", "Drama"),
                 "To carry out the biggest heist in history, a mysterious man called The Professor recruits a band of eight robbers who have a single characteristic: none of them has anything to lose. Five months of seclusion - memorizing every step, every detail, every probability - culminate in eleven days locked up in the National Coinage and Stamp Factory of Spain, surrounded by police forces and with dozens of hostages in their power, to find out whether their suicide wager will lead to everything or nothing.\n" +
                         "\n" +
                         "Tells the story of a group of bank robbers led by someone named \"Professor\". He planned this robbery with great care and was very impressed to see that everything was in order. Although a genius at planning robberies, he is also very much against the so-called murder in the robbery. These robbers have the names of the cities as nicknames, it's all included in the \"Professor\" plan where no personal data is known to each robber and there can be no relationship more than just \"colleagues\". However, conflicts that always come and come from all directions, this conflict can come from robbers, professors, police, and also hostages.",

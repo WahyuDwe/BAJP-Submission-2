@@ -21,7 +21,7 @@ class RemoteDataSource {
         }
     }
 
-    fun getMovies(callback: LoadMovesCallback) {
+    fun getMovies(callback: LoadMoviesCallback) {
         val client = ApiConfig.getService().getMovies()
         client.enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
@@ -85,7 +85,7 @@ class RemoteDataSource {
     }
 
 
-    interface LoadMovesCallback {
+    interface LoadMoviesCallback {
         fun onAllMoviesReceived(movies: List<DetailMovieResponse>)
     }
 

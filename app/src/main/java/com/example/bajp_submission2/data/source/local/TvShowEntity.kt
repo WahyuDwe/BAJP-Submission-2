@@ -1,27 +1,26 @@
 package com.example.bajp_submission2.data.source.local
 
-import com.example.bajp_submission2.data.source.remote.response.DetailGenre
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class TvShowEntity(
-    @field:SerializedName("id")
+    @SerializedName("id")
     var id: Int,
 
-    @field:SerializedName("original_name")
-    var title: String,
+    @SerializedName("original_name")
+    var name: String,
 
-    @field:SerializedName("genres")
-    var genre: List<DetailGenre>,
+    @SerializedName("overview")
+    var overview: String,
 
-    @field:SerializedName("overview")
-    var description: String,
-
-    @field:SerializedName("release_date")
+    @SerializedName("first_air_date")
     var date: String,
 
-    @field:SerializedName("vote_average")
+    @SerializedName("vote_average")
     var score: Double,
 
-    @field:SerializedName("poster_path")
+    @SerializedName("poster_path")
     var imagePath: String
-)
+): Parcelable

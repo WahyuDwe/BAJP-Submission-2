@@ -49,7 +49,7 @@ class DetailMovieViewModelTest {
         assertEquals(dataTvShow.genre, tvShowEntity.genre)
         assertEquals(dataTvShow.date, tvShowEntity.date)
         assertEquals(dataTvShow.score, tvShowEntity.score)
-        assertEquals(dataTvShow.description, tvShowEntity.description)
+        assertEquals(dataTvShow.overview, tvShowEntity.description)
         assertEquals(dataTvShow.imagePath, tvShowEntity.imagePath)
     }
 }

@@ -1,8 +1,8 @@
 package com.example.bajp_submission2.ui.tvshow
 
 import androidx.lifecycle.ViewModel
-import com.example.bajp_submission2.utils.DataDummy
+import com.example.bajp_submission2.data.source.MovieDataRepository
 
-class TvShowViewModel : ViewModel() {
-    fun getTvShow() = DataDummy.dataDummyTvShow()
+class TvShowViewModel(private val movieDataRepository: MovieDataRepository) : ViewModel() {
+    fun getTvShow() = movieDataRepository.getTvShow()
 }

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bajp_submission2.databinding.FragmentTvShowBinding
+import com.example.bajp_submission2.viewmodel.ViewModelFactory
 
 class TvShowFragment : Fragment() {
     private var _binding: FragmentTvShowBinding? = null
@@ -24,14 +25,15 @@ class TvShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val viewModel = ViewModelProvider(
-                this,
-                ViewModelProvider.NewInstanceFactory()
-            )[TvShowViewModel::class.java]
-            val tvShow = viewModel.getTvShow()
-
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
             val tvShowAdapter = TvShowAdapter()
-            tvShowAdapter.setTvShow(tvShow)
+
+            viewModel.getTvShow().observe(viewLifecycleOwner) { tvShow ->
+                tvShowAdapter.setTvShow(tvShow)
+                tvShowAdapter.notifyDataSetChanged()
+            }
+
             with(binding.rvTvshow) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)

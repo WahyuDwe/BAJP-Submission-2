@@ -5,15 +5,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.bajp_submission2.data.source.local.ContentEntity
+import com.example.bajp_submission2.BuildConfig
+import com.example.bajp_submission2.data.source.local.DetailEntity
+import com.example.bajp_submission2.data.source.local.MovieEntity
 import com.example.bajp_submission2.databinding.ItemContentBinding
 import com.example.bajp_submission2.ui.detail.DetailMovieActivity
 import com.example.bajp_submission2.ui.detail.DetailMovieViewModel.Companion.MOVIE
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-    private var listMovie = ArrayList<ContentEntity>()
+    private var listMovie = ArrayList<MovieEntity>()
 
-    fun setMovies(movie: ArrayList<ContentEntity>?) {
+    fun setMovies(movie: List<MovieEntity>?) {
         if (movie == null) return
         this.listMovie.clear()
         this.listMovie.addAll(movie)
@@ -34,7 +36,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     inner class MovieViewHolder(private val binding: ItemContentBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(movie: ContentEntity) {
+        fun bind(movie: MovieEntity) {
             with(binding) {
                 tvItemTitle.text = movie.title
                 tvItemScore.text = movie.score.toString()
@@ -42,12 +44,12 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                 tvItemDesc.text = movie.description
 
                 Glide.with(itemView.context)
-                    .load(movie.imagePath)
+                    .load(BuildConfig.IMAGE_URL + movie.imagePath)
                     .into(ivItemPoster)
 
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailMovieActivity::class.java)
-                    intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movie.id)
+                    intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movie.id.toString())
                     intent.putExtra(DetailMovieActivity.EXTRA_CATEGORY, MOVIE)
 
                     itemView.context.startActivity(intent)
