@@ -24,4 +24,4 @@ data class MovieEntity(
 
     @SerializedName("poster_path")
     var imagePath: String
-): Parcelable
+) : Parcelable

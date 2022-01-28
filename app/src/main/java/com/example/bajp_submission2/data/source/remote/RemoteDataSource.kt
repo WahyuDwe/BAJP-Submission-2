@@ -1,12 +1,11 @@
 package com.example.bajp_submission2.data.source.remote
 
-
 import android.content.ContentValues.TAG
 import android.util.Log
-import com.example.bajp_submission2.data.source.remote.response.DetailContentResponse
 import com.example.bajp_submission2.data.source.remote.response.ContentResponse
+import com.example.bajp_submission2.data.source.remote.response.DetailContentResponse
 import com.example.bajp_submission2.network.ApiConfig
-import com.example.bajp_submission2.utils.EspressoidlingResources
+import com.example.bajp_submission2.utils.EspressoIdlingResources
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,24 +22,27 @@ class RemoteDataSource {
     }
 
     fun getMovies(callback: LoadMoviesCallback) {
-        EspressoidlingResources.increment()
+        EspressoIdlingResources.increment()
         val client = ApiConfig.getService().getMovies()
         client.enqueue(object : Callback<ContentResponse> {
-            override fun onResponse(call: Call<ContentResponse>, response: Response<ContentResponse>) {
+            override fun onResponse(
+                call: Call<ContentResponse>,
+                response: Response<ContentResponse>
+            ) {
                 response.body()?.results?.let { callback.onAllMoviesReceived(it) }
                 Log.d(TAG, "onResponse : ${response.body()}")
-                EspressoidlingResources.decrement()
+                EspressoIdlingResources.decrement()
             }
 
             override fun onFailure(call: Call<ContentResponse>, t: Throwable) {
                 Log.d("Failure", t.message!!)
-                EspressoidlingResources.decrement()
+                EspressoIdlingResources.decrement()
             }
         })
     }
 
     fun getDetailMovie(callback: LoadDetailMoviesCallback, movieId: String) {
-        EspressoidlingResources.increment()
+        EspressoIdlingResources.increment()
         val client = ApiConfig.getService().getDetailMovie(movieId)
         client.enqueue(object : Callback<DetailContentResponse> {
             override fun onResponse(
@@ -49,36 +51,39 @@ class RemoteDataSource {
             ) {
                 response.body()?.let { callback.onDetailMovieReceived(it) }
                 Log.d(TAG, "onResponse : ${response.body()}")
-                EspressoidlingResources.decrement()
+                EspressoIdlingResources.decrement()
             }
 
             override fun onFailure(call: Call<DetailContentResponse>, t: Throwable) {
                 Log.d("Failure", t.message!!)
-                EspressoidlingResources.decrement()
+                EspressoIdlingResources.decrement()
             }
         })
     }
 
     fun getTvShow(callback: LoadTvShowCallback) {
-        EspressoidlingResources.increment()
+        EspressoIdlingResources.increment()
         val client = ApiConfig.getService().getTvShow()
         client.enqueue(object : Callback<ContentResponse> {
-            override fun onResponse(call: Call<ContentResponse>, response: Response<ContentResponse>) {
+            override fun onResponse(
+                call: Call<ContentResponse>,
+                response: Response<ContentResponse>
+            ) {
                 response.body()?.results?.let { callback.onAllTvShowReceived(it) }
                 Log.d(TAG, "onResponse : ${response.body()}")
-                EspressoidlingResources.decrement()
+                EspressoIdlingResources.decrement()
             }
 
             override fun onFailure(call: Call<ContentResponse>, t: Throwable) {
                 Log.d("Failure", t.message!!)
-                EspressoidlingResources.decrement()
+                EspressoIdlingResources.decrement()
             }
 
         })
     }
 
     fun getDetailTvShow(callback: LoadDetailTvShowCallback, tvShowId: String) {
-        EspressoidlingResources.increment()
+        EspressoIdlingResources.increment()
         val client = ApiConfig.getService().getDetailTvShow(tvShowId)
         client.enqueue(object : Callback<DetailContentResponse> {
             override fun onResponse(
@@ -87,12 +92,12 @@ class RemoteDataSource {
             ) {
                 response.body()?.let { callback.onDetailTvShowReceived(it) }
                 Log.d(TAG, "onResponse : ${response.body()}")
-                EspressoidlingResources.decrement()
+                EspressoIdlingResources.decrement()
             }
 
             override fun onFailure(call: Call<DetailContentResponse>, t: Throwable) {
                 Log.d("Failure", t.message!!)
-                EspressoidlingResources.decrement()
+                EspressoIdlingResources.decrement()
             }
         })
     }

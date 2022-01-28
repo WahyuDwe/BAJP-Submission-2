@@ -2,7 +2,7 @@ package com.example.bajp_submission2.utils
 
 import androidx.test.espresso.idling.CountingIdlingResource
 
-object EspressoidlingResources {
+object EspressoIdlingResources {
     private const val RESOURCE = "GLOBAL"
     val idlingResource: CountingIdlingResource = CountingIdlingResource(RESOURCE)
 

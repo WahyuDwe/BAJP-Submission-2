@@ -11,7 +11,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.example.bajp_submission2.R
 import com.example.bajp_submission2.utils.DataDummy
-import com.example.bajp_submission2.utils.EspressoidlingResources
+import com.example.bajp_submission2.utils.EspressoIdlingResources
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -30,12 +30,12 @@ class HomeActivityTest {
     @Before
     fun setUp() {
         ActivityScenario.launch(HomeActivity::class.java)
-        IdlingRegistry.getInstance().register(EspressoidlingResources.idlingResource)
+        IdlingRegistry.getInstance().register(EspressoIdlingResources.idlingResource)
     }
 
     @After
     fun tearDown() {
-        IdlingRegistry.getInstance().unregister(EspressoidlingResources.idlingResource)
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResources.idlingResource)
     }
 
     @Test

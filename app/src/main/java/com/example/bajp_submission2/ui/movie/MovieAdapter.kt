@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bajp_submission2.BuildConfig
-import com.example.bajp_submission2.data.source.local.DetailEntity
 import com.example.bajp_submission2.data.source.local.MovieEntity
 import com.example.bajp_submission2.databinding.ItemContentBinding
 import com.example.bajp_submission2.ui.detail.DetailMovieActivity
