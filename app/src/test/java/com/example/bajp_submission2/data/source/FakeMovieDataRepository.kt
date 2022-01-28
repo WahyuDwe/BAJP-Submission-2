@@ -8,16 +8,14 @@ import com.example.bajp_submission2.data.source.local.TvShowEntity
 import com.example.bajp_submission2.data.source.remote.RemoteDataSource
 import com.example.bajp_submission2.data.source.remote.response.DetailContentResponse
 
-class MovieDataRepository private constructor(private val remoteDataSource: RemoteDataSource) :
-    MovieDataSource {
-
+class FakeMovieDataRepository(private val remoteDataSource: RemoteDataSource) : MovieDataSource {
     override fun getMovies(): LiveData<List<MovieEntity>> {
         val moviesResult = MutableLiveData<List<MovieEntity>>()
 
         remoteDataSource.getMovies(object : RemoteDataSource.LoadMoviesCallback {
-            override fun onAllMoviesReceived(movie: List<DetailContentResponse>) {
+            override fun onAllMoviesReceived(contents: List<DetailContentResponse>) {
                 val listMovie = ArrayList<MovieEntity>()
-                for (response in movie) {
+                for (response in contents) {
                     with(response) {
                         val movieEntity = MovieEntity(
                             id = id,
@@ -119,14 +117,4 @@ class MovieDataRepository private constructor(private val remoteDataSource: Remo
         }, tvShowId)
         return detailTvShowResult
     }
-
-    companion object {
-        @Volatile
-        private var instance: MovieDataRepository? = null
-        fun getInstance(remote: RemoteDataSource): MovieDataRepository =
-            instance ?: synchronized(this) {
-                instance ?: MovieDataRepository(remote)
-            }
-    }
-
 }
