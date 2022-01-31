@@ -53,7 +53,7 @@ object DataDummy {
             listOf("[Action & Adventure", "Comedy", "Sci-Fi & Fantasy]"),
             "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
             "2021-12-15",
-            8.5,
+            8.4,
             "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
         )
     }
@@ -100,12 +100,12 @@ object DataDummy {
     fun dataDummyDetailTvShow(): DetailEntity {
         return DetailEntity(
             110492,
-            "Peacemaker",
-            listOf("[Action & Adventure", "Comedy", "Sci-Fi & Fantasy]"),
-            "The continuing story of Peacemaker – a compellingly vainglorious man who believes in peace at any cost, no matter how many people he has to kill to get it – in the aftermath of the events of “The Suicide Squad.”",
-            "2022-01-13",
-            8.6,
-            "/hE3LRZAY84fG19a18pzpkZERjTE.jpg",
+            "Euphoria",
+            listOf("Drama"),
+            "A group of high school students navigate love and friendships in a world of drugs, sex, trauma, and social media.",
+            "2019-06-16",
+            8.4,
+            "/gNbdjDi1HamTCrfvM9JeA94bNi2.jpg",
         )
     }
 
